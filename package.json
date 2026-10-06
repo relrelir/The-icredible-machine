@@ -1,0 +1,22 @@
+{
+  "name": "wonder-machine",
+  "version": "1.0.0",
+  "description": "מכונת הפלאים – משחק פאזל פיזיקלי לילדים",
+  "scripts": {
+    "test": "node tests/run.js",
+    "start": "python3 -m http.server 8080 -d public",
+    "deploy": "firebase deploy --only hosting"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/relrelir/The-icredible-machine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/relrelir/The-icredible-machine/issues"
+  },
+  "homepage": "https://github.com/relrelir/The-icredible-machine#readme",
+  "devDependencies": {
+    "matter-js": "^0.20.0"
+  },
+  "private": true
+}

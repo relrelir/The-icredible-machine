@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>מכונת הפלאים</title>
+  <meta name="description" content="משחק פאזל פיזיקלי לילדים – בונים מכונות מטורפות!">
+  <meta name="theme-color" content="#1f6f8b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- תפריט ראשי -->
+    <section id="menu" class="screen">
+      <div class="menu-card">
+        <h1>מכונת הפלאים <span class="gear">⚙️</span></h1>
+        <p class="sub">גוררים חלקים, לוחצים ״הפעל״ – ומסתכלים איך הכל מתגלגל!</p>
+        <div id="levelGrid" class="level-grid"></div>
+        <div class="menu-actions">
+          <button id="sandboxBtn" class="btn btn-alt">🛠️ משחק חופשי</button>
+          <button id="soundBtn" class="btn btn-ghost" aria-label="צליל">🔊</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- מסך משחק -->
+    <section id="game" class="screen hidden">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-btn" title="תפריט">🏠</button>
+        <div class="title"><b id="lvlTitle"></b><span id="lvlText"></span></div>
+      </header>
+      <div class="main">
+        <div id="boardWrap"><canvas id="board"></canvas><div class="portrait-tip">📱↻ סובבו את הטלפון לרוחב – הלוח יהיה גדול יותר</div></div>
+        <aside id="tray" aria-label="חלקים"></aside>
+      </div>
+      <footer class="controls">
+        <button id="playBtn" class="btn btn-play">▶ הפעל</button>
+        <div class="tools">
+          <button id="rotLBtn" class="icon-btn" title="סובב שמאלה">⟲</button>
+          <button id="rotRBtn" class="icon-btn" title="סובב ימינה">⟳</button>
+          <button id="flipBtn" class="icon-btn" title="הפוך כיוון">⇆</button>
+          <button id="delBtn" class="icon-btn" title="החזר למגש">🗑️</button>
+          <button id="hintBtn" class="icon-btn" title="רמז">💡</button>
+          <button id="resetBtn" class="icon-btn" title="התחל מחדש">↺</button>
+        </div>
+      </footer>
+    </section>
+
+    <!-- חלון ניצחון -->
+    <div id="winModal" class="modal hidden">
+      <div class="modal-card">
+        <div class="big-emoji">🎉</div>
+        <h2>כל הכבוד!</h2>
+        <p id="winText">המכונה עבדה!</p>
+        <div class="modal-actions">
+          <button id="nextBtn" class="btn btn-play">לשלב הבא ◀</button>
+          <button id="stayBtn" class="btn btn-ghost">להישאר כאן</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/matter.min.js"></script>
+  <script src="js/parts.js"></script>
+  <script src="js/sim.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
